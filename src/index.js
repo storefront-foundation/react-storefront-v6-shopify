@@ -13,31 +13,25 @@ function getClient() {
   )
 }
 
-export function api(path, params = {}, method = 'GET', body) {
+export function admin(path, params = {}, method = 'GET', body) {
   const apiPrefix = Config.get('shopify_api_prefix')
-  const accessToken = Config.get('shopify_access_token')
-  const clientId = Config.get('shopify_client_id')
-
+  const password = Config.get('shopify_api_password')
+  const domain = Config.get('shopify_domain')
   const qs = querystring.stringify({
-    ...params,
-    client_id: clientId,
-    access_token: accessToken
+    ...params
   })
-  return fetch(`${apiPrefix}/${path}.json?${qs}`, { method, body }).then(res => res.json())
+  const headers = {
+    'X-Shopify-Access-Token': password
+  }
+  const url = `https://${domain}/admin/api/${apiPrefix}/${path}.json?${qs}`
+  return fetch(url, { method, body, headers }).then(res => res.json())
 }
 
-export async function submitOrder(sessionId, email) {
-  const checkout = await getClient().checkout.fetch(sessionId)
-  const items = checkout.lineItems.map(e => e.variant)
-  return api('orders', {}, 'post', {
-    order: {
-      email,
-      fulfillment_status: 'fulfilled',
-      send_receipt: true,
-      send_fulfillment_receipt: true,
-      line_items: items
-    }
-  })
+// This is an example, you can easily just use
+// other paths for any Admin data you need
+// Source: https://help.shopify.com/en/api/reference/products/product
+export function fetchVariants(productId) {
+  return admin(`products/${productId}/variants`)
 }
 
 function transformCollection({ id, title, image, descriptionHtml, products }) {
