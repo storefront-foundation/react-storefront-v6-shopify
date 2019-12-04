@@ -9,10 +9,9 @@
 
 Here are a few built in methods for fetching data from Shopify:
 
-- `api(path, params)` The base Admin API helper method. Currently it is only used for `submitOrder`
-- `submitOrder(sessionId, email)` Submit order for session and email
+- `admin(path, params)` The base Admin API helper method.
 
-The rest of the methods will transform the Shopify responses to reflect the React Storefront models. This is done to make integration simpler.
+  The rest of the methods will transform the Shopify responses to reflect the React Storefront models. This is done to make integration simpler.
 
 - `fetchSubcategories()` method for fetching subcategories
 - `fetchProduct(handle)` method for fetching a specific product
@@ -26,3 +25,9 @@ The rest of the methods will transform the Shopify responses to reflect the Reac
 - `categorySearch(query)` Fetch category search results
 - `fetchProductImages(handle, color)` Fetch product images by color
 - `fetchMenu()` Fetching root level categories in menu item form
+
+## Changelog
+
+### 1.1.0
+
+- Added proper admin api endpoint
