@@ -1,6 +1,6 @@
 {
   "name": "react-storefront-shopify",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React Storefront Shopify Connector",
   "author": "Moovweb",
   "module": "./index.js",
