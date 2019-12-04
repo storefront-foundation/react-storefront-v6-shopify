@@ -29,6 +29,7 @@ export function admin(path, params = {}, method = 'GET', body) {
 
 // This is an example, you can easily just use
 // other paths for any Admin data you need
+// Source: https://help.shopify.com/en/api/reference/products/product
 export function fetchVariants(productId) {
   return admin(`products/${productId}/variants`)
 }
