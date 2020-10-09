@@ -1,4 +1,4 @@
-# React Storefront Shopify Connector
+# React Storefront v6 Shopify Connector
 
 ## Setup
 
