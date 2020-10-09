@@ -1,5 +1,7 @@
 # React Storefront v6 Shopify Connector
 
+This connector does not work with React Storefront v8+!! We share it so that someone in the community can port it over to v8 using the [Creating a Connector](https://docs.reactstorefront.io/guides/connectors#section_creating_your_own_connector) guide.
+
 ## Setup
 
 - Add `react-storefront-shopify` to your project
